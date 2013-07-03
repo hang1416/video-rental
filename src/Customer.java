@@ -33,8 +33,8 @@ public class Customer {
 		
 		String result = "대여고객 :"+getName()+"은 ";
 		for(Rental rental :getRentals()){
-			int thisAmount=0;
 			
+			int thisAmount = 0;
 			switch(rental.getMovie().getPriceCode()){
 				case Movie.REGULAR:
 					thisAmount+=2000;
@@ -49,7 +49,7 @@ public class Customer {
 					if(rental.getDaysRented()>3)
 						thisAmount+= (rental.getDaysRented()-3)*1500;
 					break;
-					
+
 			}
 			points++;
 			if(rental.getMovie().getPriceCode()==Movie.NEW_REALEASE && rental.getDaysRented()>1)
@@ -62,7 +62,6 @@ public class Customer {
 		result += "포인트는 " + String.valueOf(points) + "점 입니다.";
 		return result;
 	}
-
 
 	public void addRental(Rental rental) {
 		this.rentals.add(rental);
