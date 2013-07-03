@@ -31,7 +31,7 @@ public class Customer {
 		int totalAmount = 0;
 		int points = 0;
 		
-		String result = "대여고객 :"+getName()+"\n";
+		String result = "대여고객 :"+getName()+"은 ";
 		for(Rental rental :getRentals()){
 			int thisAmount=0;
 			
@@ -54,13 +54,12 @@ public class Customer {
 			points++;
 			if(rental.getMovie().getPriceCode()==Movie.NEW_REALEASE && rental.getDaysRented()>1)
 				points++;
-			result += "\t"+rental.getMovie().getTitle()+"\t"+String.valueOf(thisAmount)+"원\n";
+			result += ""+rental.getMovie().getTitle()+" "+String.valueOf(thisAmount)+"원";
 			totalAmount +=thisAmount;
 				
 		}
 		result += "대여료는  " + String.valueOf(totalAmount) + "원이고,";
 		result += "포인트는 " + String.valueOf(points) + "점 입니다.";
-		result += "\n=================================================";
 		return result;
 	}
 
