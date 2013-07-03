@@ -28,38 +28,25 @@ public class Customer {
 	}
 
 	public String statment() {
-		int totalAmount = 0;
 		int points = 0;
 		
 		String result = "대여고객 :"+getName()+"은 ";
 		for(Rental rental :getRentals()){
 			
-			int thisAmount = 0;
-			switch(rental.getMovie().getPriceCode()){
-				case Movie.REGULAR:
-					thisAmount+=2000;
-					if(rental.getDaysRented()>2)
-						thisAmount+= (rental.getDaysRented()-2)*1500;
-					break;
-				case Movie.NEW_REALEASE:
-					thisAmount+=rental.getDaysRented()*3000;
-					break;
-				case Movie.ChilDREN:
-					thisAmount+=1500;
-					if(rental.getDaysRented()>3)
-						thisAmount+= (rental.getDaysRented()-3)*1500;
-					break;
-
-			}
-			points++;
-			if(rental.getMovie().getPriceCode()==Movie.NEW_REALEASE && rental.getDaysRented()>1)
-				points++;
-			result += ""+rental.getMovie().getTitle()+" "+String.valueOf(thisAmount)+"원";
-			totalAmount +=thisAmount;
+			points = rental.getPoint(points);
+			result += rental.getMovie().getTitle()+" "+String.valueOf(rental.getCharge())+"원";
 				
 		}
-		result += "대여료는  " + String.valueOf(totalAmount) + "원이고,";
+		result += "대여료는  " + String.valueOf(getTotalCharge()) + "원이고,";
 		result += "포인트는 " + String.valueOf(points) + "점 입니다.";
+		return result;
+	}
+
+	private int getTotalCharge() {
+		int result = 0;
+		for(Rental rental :getRentals()){
+			result += rental.getCharge();
+		}
 		return result;
 	}
 
