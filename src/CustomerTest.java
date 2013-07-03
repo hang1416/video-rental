@@ -7,16 +7,23 @@ public class CustomerTest {
 
 	@Test
 	public void testStatement() {
-		Customer customer = new Customer("최혜영");
-		Movie movie = new Movie("신세계",0);
-		Movie movie1 = new Movie("아이언맨",1);
-		Rental rental = new Rental(movie, 3);
-		Rental rental1 = new Rental(movie1, 3);
+		Customer customer1 = new Customer("최혜영");
+		Customer customer2 = new Customer("박순현");
+		Movie movie1 = new Movie("신세계",0);
+		Movie movie2 = new Movie("월드워Z",1);
+		Movie movie3 = new Movie("뽀로로",2);
 		
-		customer.addRental(rental);
-		customer.addRental(rental1);
-		String result = customer.statment();
-		System.out.println(result);
+		Rental rental1 = new Rental(movie1, 3);
+		Rental rental2 = new Rental(movie2, 3);
+		Rental rental3 = new Rental(movie3, 4);
+		
+		customer1.addRental(rental1);
+		customer1.addRental(rental2);
+		customer2.addRental(rental3);
+		
+		System.out.println(customer1.statment());
+		System.out.println(customer2.statment());
+		
 	}
 
 }
