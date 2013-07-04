@@ -28,17 +28,24 @@ public class Customer {
 	}
 
 	public String statment() {
-		int points = 0;
 		
 		String result = "대여고객 :"+getName()+"은 ";
 		for(Rental rental :getRentals()){
 			
-			points = rental.getPoint(points);
 			result += rental.getMovie().getTitle()+" "+String.valueOf(rental.getCharge())+"원";
 				
 		}
 		result += "대여료는  " + String.valueOf(getTotalCharge()) + "원이고,";
-		result += "포인트는 " + String.valueOf(points) + "점 입니다.";
+		result += "포인트는 " + String.valueOf(getTotalPoint()) + "점 입니다.";
+		return result;
+	}
+
+	private int getTotalPoint() {
+		int result = 0;
+		for(Rental rental :getRentals()){
+			result++;
+			result = rental.getPoint(result);
+		}
 		return result;
 	}
 

@@ -46,7 +46,6 @@ public class Rental {
 	}
 
 	public int getPoint(int points) {
-		points++;
 		if(getMovie().getPriceCode()==Movie.NEW_REALEASE && getDaysRented()>1)
 			points++;
 		return points;
