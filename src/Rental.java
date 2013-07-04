@@ -45,10 +45,11 @@ public class Rental {
 		return result;
 	}
 
-	public int getPoint(int points) {
+	public int getPoint() {
 		if(getMovie().getPriceCode()==Movie.NEW_REALEASE && getDaysRented()>1)
-			points++;
-		return points;
+			return 2;
+		else
+			return 1;
 	}
 
 }

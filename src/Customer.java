@@ -43,8 +43,7 @@ public class Customer {
 	private int getTotalPoint() {
 		int result = 0;
 		for(Rental rental :getRentals()){
-			result++;
-			result = rental.getPoint(result);
+			result += rental.getPoint();
 		}
 		return result;
 	}
