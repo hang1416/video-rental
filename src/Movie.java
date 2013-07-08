@@ -29,4 +29,25 @@ public class Movie {
 	public void setTitle(String title) {
 		this.title = title;
 	}
+
+	public int getCharge(int dayRented) {
+		int result = 0;
+		switch(getPriceCode()){
+			case Movie.REGULAR:
+				result+=2000;
+				if(dayRented>2)
+					result+= (dayRented-2)*1500;
+				break;
+			case Movie.NEW_REALEASE:
+				result+=dayRented*3000;
+				break;
+			case Movie.ChilDREN:
+				result+=1500;
+				if(dayRented>3)
+					result+= (dayRented-3)*1500;
+				break;
+	
+		}
+		return result;
+	}
 }

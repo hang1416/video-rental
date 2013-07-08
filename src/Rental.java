@@ -24,32 +24,15 @@ public class Rental {
 		this.movie = movie;
 	}
 
-	public int getCharge() {
-		int result = 0;
-		switch(getMovie().getPriceCode()){
-			case Movie.REGULAR:
-				result+=2000;
-				if(getDaysRented()>2)
-					result+= (getDaysRented()-2)*1500;
-				break;
-			case Movie.NEW_REALEASE:
-				result+=getDaysRented()*3000;
-				break;
-			case Movie.ChilDREN:
-				result+=1500;
-				if(getDaysRented()>3)
-					result+= (getDaysRented()-3)*1500;
-				break;
-	
-		}
-		return result;
-	}
-
 	public int getPoint() {
 		if(getMovie().getPriceCode()==Movie.NEW_REALEASE && getDaysRented()>1)
 			return 2;
 		else
 			return 1;
+	}
+
+	public int getCharge() {
+		return getMovie().getCharge(getDaysRented());
 	}
 
 }
