@@ -47,7 +47,7 @@ public class Movie {
 		this.title = title;
 	}
 	public int getPoint(int dayRendted) {
-		price.getPoint();
+		return price.getPoint(dayRendted);
 	}
 
 	public int getCharge(int dayRented) {
