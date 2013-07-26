@@ -28,12 +28,12 @@ public class Customer {
 		return name;
 	}
 
-	public String statment() {
+	public String statement() {
 		
 		String result = "대여고객 :"+getName()+"은 ";
 		for(Rental rental :getRentals()){
 			
-			result += rental.getMovie().getTitle()+" "+String.valueOf(rental.getCharge())+"원";
+			result += rental.getMovie().getTitle()+" "+String.valueOf(rental.getCharge())+"원 ";
 				
 		}
 		result += "대여료는  " + String.valueOf(getTotalCharge()) + "원이고,";
