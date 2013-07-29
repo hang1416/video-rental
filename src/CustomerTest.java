@@ -20,8 +20,8 @@ public class CustomerTest {
 		customer1.addRental(rental1);
 		customer1.addRental(rental2);
 		customer2.addRental(rental3);
-		assertEquals(customer1.statment(),"대여고객 :최혜영은 신세계 3500원월드워Z 9000원대여료는  12500원이고,포인트는 3점 입니다.");
-		assertEquals(customer2.statment(),"대여고객 :박순현은 뽀로로 3000원대여료는  3000원이고,포인트는 1점 입니다.");
+		assertEquals(customer1.statement(),"대여고객 :최혜영은 신세계 3500원월드워Z 9000원대여료는  12500원이고,포인트는 3점 입니다.");
+		assertEquals(customer2.statement(),"대여고객 :박순현은 뽀로로 3000원대여료는  3000원이고,포인트는 1점 입니다.");
 		
 	}
 

@@ -27,7 +27,7 @@ public class Customer {
 		return name;
 	}
 
-	public String statment() {
+	public String statement() {
 		int totalAmount = 0;
 		int points = 0;
 		
@@ -44,7 +44,7 @@ public class Customer {
 				case Movie.NEW_REALEASE:
 					thisAmount+=rental.getDaysRented()*3000;
 					break;
-				case Movie.ChilDREN:
+				case Movie.CHILDREN:
 					thisAmount+=1500;
 					if(rental.getDaysRented()>3)
 						thisAmount+= (rental.getDaysRented()-3)*1500;
